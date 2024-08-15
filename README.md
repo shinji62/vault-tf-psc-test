@@ -38,7 +38,7 @@ Postgres with PSC
 vault write database/config/my-postgresql-database-psc \
     plugin_name="postgresql-database-plugin" \
     allowed_roles="my-role" \
-    connection_url="host=TF_OUTPUT_OF_psc-postgresl-connection-name user=cloud-sql-postgres-sa@sej-tools-hashicorp.iam dbname=postgres sslmode=disable" \
+    connection_url="host=TF_OUTPUT_OF_psc-postgresl-connection-name user=cloud-sql-postgres-sa@YOUR_GCP_PROJECt.iam dbname=postgres sslmode=disable" \
     auth_type="gcp_iam" \
     use_psc=true
 ```
@@ -48,7 +48,7 @@ Postgres with PrivateIP
 vault write database/config/my-postgresql-database-privateip \
     plugin_name="postgresql-database-plugin" \
     allowed_roles="my-role" \
-    connection_url="host=TF_OUTPUT_OF_privateip-postgresql-connection-name user=cloud-sql-postgres-sa@sej-tools-hashicorp.iam dbname=postgres sslmode=disable" \
+    connection_url="host=TF_OUTPUT_OF_privateip-postgresql-connection-name user=cloud-sql-postgres-sa@YOUR_GCP_PROJECt.iam dbname=postgres sslmode=disable" \
     auth_type="gcp_iam" \
     use_private_ip=true
 ```
@@ -59,7 +59,7 @@ Postgres without options
 vault write database/config/my-postgresql-database-normal \
     plugin_name="postgresql-database-plugin" \
     allowed_roles="my-role" \
-    connection_url="host=TF_OUTPUT_OF_normal-postgresql-connection-name user=cloud-sql-postgres-sa@sej-tools-hashicorp.iam dbname=postgres sslmode=disable" \
+    connection_url="host=TF_OUTPUT_OF_normal-postgresql-connection-name user=cloud-sql-postgres-sa@YOUR_GCP_PROJECt.iam dbname=postgres sslmode=disable" \
     auth_type="gcp_iam" 
 ```
 
