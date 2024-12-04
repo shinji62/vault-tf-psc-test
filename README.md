@@ -1,12 +1,12 @@
 # Description
 
-This repository is used to test Cloud SQL with multitple configuration
+This repository is used to test Cloud SQL with multiple configuration
 
 Default behavior
 With PSC
 With Private IP
 
-Terraform code also creeate a VM with a service account who can connect to all DB but by default GCP create those user without permission.
+Terraform code also create a VM with a service account who can connect to all DB.
 
 ## GCP Account
 
@@ -19,7 +19,7 @@ First create a temporary account using doormat:
 Once the project is created, you need to login locally.
 Make sure the gcloud cli is install in your laptop.
 
-```
+```shell
 gcloud auth application-default login
 ```
 
@@ -65,11 +65,10 @@ Error: Error, failed to insert user cloud-sql-postgres-sa@YOUR_GCP_PROJECT.iam i
 ssh -i ~/.ssh/your_private_key ubuntu@TF_OUPUT_OF_vm-public-ip
 ```
 
-## Using with Vault
+## Adding user permission to the DB
 
-This use IAM authentification but by default GCP create those user without permission.
+This use IAM authentification but by default GCP create DB with the user without permission.
 You need to add permission to the IAM user in those Database.
-
 
 ### MYSQL
 

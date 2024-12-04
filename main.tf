@@ -26,4 +26,5 @@ resource "random_string" "suffix" {
 resource "google_project_service" "services" {
   count   = length(local.gcp_service_list)
   service = local.gcp_service_list[count.index]
+  disable_on_destroy = false
 }
