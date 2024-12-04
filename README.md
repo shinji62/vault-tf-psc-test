@@ -143,9 +143,9 @@ vault server -dev
 
 ## Testing Vault
 
-
 ### Enable secret Database engine
-```
+
+```shell
 vault secrets enable database
 ```
 
@@ -175,8 +175,8 @@ Key                Value
 lease_id           database/creds/my-role-normal-mysql/wrGWUSSM7nne0qLGAsrmfZml
 lease_duration     1h
 lease_renewable    true
-password           IHyp8-mcinUCmJ58KjGG
-username           v-root-my-role-no-7WOnVsmnfMbIQk
+password           random_password
+username           v-root-my-role-no-randome
 ```
 
 MySQL with PrivateIP
@@ -204,8 +204,8 @@ Key                Value
 lease_id           database/creds/my-role-mysql-privip/AQY4C2h90M0npo6NXxJpEYxH
 lease_duration     1h
 lease_renewable    true
-password           IQKIU-gALqMpSwdTCb9B
-username           v-root-my-role-pr-JuqgEl2DkqkZgH
+password           random_password
+username           v-root-my-role-no-randome
 ```
 
 MySQL with PSC
@@ -234,8 +234,8 @@ Key                Value
 lease_id           database/creds/my-role-mysql-psc/PDODJinMmqffIXvCTaWBFfXw
 lease_duration     1h
 lease_renewable    true
-password           yutZTIxR-0QF4bxOmB7T
-username           v-root-my-role-my-RFWG5ua4UclX6Z
+password           random_password
+username           v-root-my-role-no-randome
 ```
 
 ### POSTGRES
@@ -269,8 +269,8 @@ Key                Value
 lease_id           database/creds/my-role-psql-normal/Rl5mo0ylXkJDav6ym19gWLnT
 lease_duration     1h
 lease_renewable    true
-password           -RVAwyD4eINx0uILozOf
-username           v-root-my-role--iflFUrj7OfoZPIC1rBcH-1733295245
+password           random_password
+username           v-root-my-role-no-randome
 ```
 
 Postgres with PrivateIP
@@ -300,8 +300,8 @@ Key                Value
 lease_id           database/creds/my-role-psql-privateip/eaTSwih3C89XVptRKPvKVjzv
 lease_duration     1h
 lease_renewable    true
-password           aI2-OcbA4UwK2tDovLGW
-username           v-root-my-role--fGyDn8Cy1z8YLMGiFSn3-1733295046
+password           random_password
+username           v-root-my-role-no-randome
 ```
 
 Postgres with PSC
@@ -331,6 +331,6 @@ Key                Value
 lease_id           database/creds/my-role-psql-psc/EGSnX6bDr1h88SMWlPoPhITc
 lease_duration     1h
 lease_renewable    true
-password           P7M-OcXHM4O-Sooi0Dg4
-username           v-root-my-role--6Mmsz1Y97NxSTlCLy4bC-1733294915
+password           random_password
+username           v-root-my-role-no-randome
 ```
