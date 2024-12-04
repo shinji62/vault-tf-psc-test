@@ -8,15 +8,10 @@
 //***********************************************************************************************
 
 
-
-
 resource "google_sql_database_instance" "mysql_normal" {
-
   name                = "private-instance-mysql-normal"
   database_version    = "MYSQL_8_0"
   deletion_protection = false
-
-
 
   settings {
     tier = "db-f1-micro"
@@ -51,12 +46,9 @@ resource "google_sql_user" "admin_password_mysql_normal" {
 
 
 resource "google_sql_database_instance" "postgresql_normal" {
-
   name                = "private-instance-postgresql-normal"
   database_version    = "POSTGRES_15"
   deletion_protection = false
-
-
 
   settings {
     tier = "db-f1-micro"

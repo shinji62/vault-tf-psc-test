@@ -148,7 +148,7 @@ resource "google_sql_database_instance" "mysql" {
       ipv4_enabled = false
     }
     backup_configuration {
-      enabled = true
+      enabled            = true
       binary_log_enabled = true
     }
     availability_type = "REGIONAL"

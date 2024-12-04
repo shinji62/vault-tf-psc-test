@@ -21,9 +21,7 @@ resource "google_compute_instance" "my_instance" {
     }
   }
   metadata = {
-    ssh-keys = <<EOF
-      gwenn:ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIHHe1RwQBe8gP4h6UvxbHQbOQ0E3GSzNWL0BQrF0Sw9H gwenn.etourneau@hashicorp.com
-    EOF
+    ssh-keys = "ubuntu:${file(var.path_to_public_key)}" 
   }
   allow_stopping_for_update = true
   service_account {

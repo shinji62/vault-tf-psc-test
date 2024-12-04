@@ -27,7 +27,6 @@ resource "google_service_networking_connection" "private_vpc_connection" {
 
 
 resource "google_sql_database_instance" "mysql_privateip" {
-
   name                = "private-instance-mysql-privateip"
   database_version    = "MYSQL_8_0"
   deletion_protection = false

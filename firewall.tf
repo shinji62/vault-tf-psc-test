@@ -16,7 +16,7 @@ resource "google_compute_firewall" "my_network" {
 
   target_tags = ["bastion-tag"]
   # https://cloud.google.com/iap/docs/using-tcp-forwarding#create-firewall-rule
-  source_ranges = ["35.235.240.0/20","152.165.26.42/32"]
+  source_ranges = ["35.235.240.0/20", var.my-ip]
 
   # CloudLoggingにFlowLogログを出力したい場合は設定する
   log_config {
