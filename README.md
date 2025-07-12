@@ -25,7 +25,9 @@ gcloud auth application-default login
 
 ## Run Terraform
 
-Before running terraform you need to create a `terraform.tfvars` which contain the variable which are needed
+Before running terraform you need to create a `terraform.tfvars` which contain the variable which are needed.
+
+To generate keys for the public and private keys required, follow [this guide](https://cloud.google.com/compute/docs/connect/create-ssh-keys) for GCP.
 
 For example :
 
@@ -153,6 +155,8 @@ vault secrets enable database
 
 Normal MySQL
 
+Note the connection URL follows a specific format outlined in step 2
+of the configuration docs [here](https://developer.hashicorp.com/vault/docs/secrets/databases/mysql-maria#setup-1). Note that the parentheses remain part of the URL format.
 ```shell
 vault write database/config/my-mysql-database-normal \
     plugin_name="mysql-database-plugin" \
