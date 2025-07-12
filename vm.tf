@@ -9,7 +9,7 @@ resource "google_compute_instance" "my_instance" {
   zone         = "asia-northeast1-a"
   boot_disk {
     initialize_params {
-      image = "ubuntu-os-cloud/ubuntu-2004-lts"
+      image = "ubuntu-os-cloud/ubuntu-2204-lts"
       size  = 100
     }
   }
