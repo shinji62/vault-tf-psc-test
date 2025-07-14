@@ -168,6 +168,7 @@ vault write database/config/my-mysql-database-normal \
 vault write database/roles/my-role-normal-mysql \
     db_name=my-mysql-database-normal \
     creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    revocation_statements="DROP USER '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 
@@ -197,6 +198,7 @@ vault write database/config/my-mysql-database-privip \
 vault write database/roles/my-role-mysql-privip \
     db_name=my-mysql-database-privip \
     creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    revocation_statements="DROP USER '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 
@@ -226,6 +228,7 @@ vault write database/config/my-mysql-database-psc \
 vault write database/roles/my-role-mysql-psc \
     db_name=my-mysql-database-psc \
     creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    revocation_statements="DROP USER '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 
