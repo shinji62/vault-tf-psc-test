@@ -25,7 +25,9 @@ gcloud auth application-default login
 
 ## Run Terraform
 
-Before running terraform you need to create a `terraform.tfvars` which contain the variable which are needed
+Before running terraform you need to create a `terraform.tfvars` which contain the variable which are needed.
+
+To generate keys for the public and private keys required, follow [this guide](https://cloud.google.com/compute/docs/connect/create-ssh-keys) for GCP.
 
 For example :
 
@@ -153,6 +155,8 @@ vault secrets enable database
 
 Normal MySQL
 
+Note the connection URL follows a specific format outlined in step 2
+of the configuration docs [here](https://developer.hashicorp.com/vault/docs/secrets/databases/mysql-maria#setup-1). Note that the parentheses remain part of the URL format.
 ```shell
 vault write database/config/my-mysql-database-normal \
     plugin_name="mysql-database-plugin" \
@@ -164,6 +168,7 @@ vault write database/config/my-mysql-database-normal \
 vault write database/roles/my-role-normal-mysql \
     db_name=my-mysql-database-normal \
     creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    revocation_statements="DROP USER '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 
@@ -193,6 +198,7 @@ vault write database/config/my-mysql-database-privip \
 vault write database/roles/my-role-mysql-privip \
     db_name=my-mysql-database-privip \
     creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    revocation_statements="DROP USER '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 
@@ -222,6 +228,7 @@ vault write database/config/my-mysql-database-psc \
 vault write database/roles/my-role-mysql-psc \
     db_name=my-mysql-database-psc \
     creation_statements="CREATE USER '{{name}}'@'%' IDENTIFIED BY '{{password}}';GRANT SELECT ON *.* TO '{{name}}'@'%';" \
+    revocation_statements="DROP USER '{{name}}'@'%';" \
     default_ttl="1h" \
     max_ttl="24h"
 
