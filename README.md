@@ -135,7 +135,9 @@ ALTER USER "cloud-sql-postgres-sa@YOUR_GCP_PROJECT.iam" WITH CREATEROLE;
 
 ## Vault
 
-Vault need to be compile with the change and need to be run from the VM as we use the underlying GCP service account to connect to the DB
+NOTE: Vault needs to be compile with the change and needs to be run from the GCP VM as we use the underlying GCP service account to connect to the DB.
+
+You will also need to generate and download a service account JSON key for the service account user named "cloud-sql-postgres-sa" which will be created automatically by the Terraform, which is only used when connectiong to the normal/public IP database from your own machine.
 
 ### Starting Vault
 
@@ -162,7 +164,8 @@ vault write database/config/my-mysql-database-normal \
     plugin_name="mysql-database-plugin" \
     allowed_roles="my-role-normal-mysql" \
     connection_url="cloud-sql-postgres-sa@cloudsql-mysql(TF_OUTPUT_OF_normal-mysql-connection-name)/mysql" \
-    auth_type="gcp_iam" 
+    auth_type="gcp_iam"
+    credentials="@/path/to/cloud-sql-postgres-sa-service-account-key.json"
 
 # Setup role    
 vault write database/roles/my-role-normal-mysql \
